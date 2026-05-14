@@ -1,0 +1,22 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+
+.button__primary{
+    @include mixins.button(
+        variables.$color-black,
+        variables.$color-gold,
+        right
+    );  
+    color: variables.$color-white;
+}
+
+.button__location{
+    @include mixins.button(
+        variables.$color-black,
+        variables.$color-gold,
+        left
+    );  
+    color: variables.$color-white;
+    transform: translate(70px);
+}

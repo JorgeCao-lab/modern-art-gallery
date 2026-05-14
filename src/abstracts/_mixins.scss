@@ -1,0 +1,78 @@
+@use './variables';
+
+@mixin contenedor{
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    align-items: center;
+    margin-inline:auto;
+    padding-inline: 16px;
+    max-width: 1320px;
+}
+
+@mixin button($color1,$color2,$direction){
+    display: inline-flex;
+    border: none;
+    width: 150px;
+    height: 70px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: $color1;
+    font-family: 'Big Shoulders Display',sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    &::before{
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        background-color:$color2;
+        right: 0;
+        top: 50%;
+        
+
+        background-image: url('/img/flecha.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+
+        transition: 0.5s;
+
+        @if $direction == right {
+            right: 0;
+            transform: translate(100% , -50%);
+        } @else if $direction == left {
+                left: 0;
+                transform: translate(-100%, -50%) rotate(180deg);
+            }
+    }
+    &:hover{
+        background-color:$color2;
+        transition:0.5s;
+    }
+
+    &:hover::before{
+        background-color:$color1;
+        transition: 0.5s;
+    }
+}
+
+
+@mixin tablet {
+    @media  (min-width: 768px){
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: 1024px){
+        @content;
+    }
+}
+
+@mixin desktop-xl {
+    @media (min-width: 1280px){
+        @content;
+    }
+}
