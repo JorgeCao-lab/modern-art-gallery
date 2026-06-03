@@ -1,0 +1,293 @@
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
+
+.header{
+    @include mixins.contenedor;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 6rem;
+
+    &__bg img{
+        width: 100%;
+        height: 350px;
+        display:block;
+        padding-bottom: 2rem;
+        object-fit:cover;
+        object-position: center;
+        }
+
+        &__contenedor{
+        padding-inline: 16px;
+        }
+
+    &__contenido{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        gap: 1.5rem;
+        margin: 0;
+        padding: 0;
+        }
+            h1,
+            p{
+                margin: 0;
+                }
+
+        @include mixins.tablet{
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            grid-template-rows: auto;
+            .header__bg{
+                grid-column:1;
+                grid-row:1;
+                background-color: variables.$color-white;
+            }
+            .header__bg img{
+                grid-column: 1/2;
+                grid-row: 1;
+                width: 100%;
+                height: 50vh;
+                object-fit:cover;
+            }
+            .header__contenedor{
+                grid-column:1/2;
+                grid-row:1;
+                align-self: center;
+                padding-left: 90%;
+            }
+            .header__contenido h1,p,a{
+                margin: 0;
+                padding: 0;
+                gap: 1rem;
+            }
+        }
+
+        @include mixins.desktop{
+            display: grid;
+            min-height:100%;
+            margin-inline: auto;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-areas: "black img white";
+            background: linear-gradient(to right,
+            variables.$color-black 0%,
+            variables.$color-black 33.33%,
+            variables.$color-white 33.33%,
+            variables.$color-white 100%
+            );
+            padding: 0;
+            margin-bottom: 10%;
+            
+            .black {grid-area: black;}
+            .header__bg {grid-area: img;}
+            .white {grid-area: white;}
+        
+        .header__bg{
+            grid-column: 2;
+            grid-row: 1;
+            height: 100%;
+        }
+        .header__bg img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            margin-inline: auto;
+        }
+
+        .header__contenedor{
+            grid-column: 1/4;
+            grid-row: 1;
+            height: 50vh;
+            padding: 0;
+            margin: 0;
+            max-width: 1320px;
+            width: 100%;
+            margin-inline: auto;
+            justify-content: center;
+            margin-left: 5rem;
+        }
+        .header__contenido{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-areas: 
+            "h1 . p "
+            "h1 . a";
+            width: 80%;
+            height: 40%;
+            align-items: start;
+            gap:2rem;
+
+        h1{
+            color: variables.$color-white;
+            grid-row: 1/2;
+           }
+        p{ 
+            grid-column: 2;
+            grid-row: 1;
+            padding-left: 4rem;
+        }
+        .button__primary{
+            grid-column: 2;
+            grid-row: 2;
+            margin-left: 4rem
+        }
+        }
+    }
+}
+
+
+.main{
+   @include mixins.contenedor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10%;
+    .gallery{
+        &__intro{
+            max-width: 100%;
+            img{
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+    
+        &__foot{
+            padding: 20px;
+            background-color: variables.$color-black;
+            color: variables.$color-white;
+                p{
+                    color: variables.$color-white;
+                    }
+                }
+            }
+        }
+    }
+
+    .main{
+        @include mixins.contenedor;
+        display: grid;
+        
+    .contenedor{
+        padding: 0; 
+        margin: 0;
+    }
+    .gallery__intro{
+        display: flex;
+        flex-direction:column;
+        gap: 15px;
+         }
+    }
+
+   
+    
+
+
+    .main .gallery__intro{
+        @include mixins.tablet{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-areas: 
+            "title img1  img1"
+            "img2  img2  img3"
+            "img2  img2  foot";
+            grid-template-rows: 1fr 1fr;
+    }
+    .gallery__title {grid-area: title;}
+    .gallery__img1  {grid-area: img1;}
+    .gallery__img2  {grid-area: img2;}
+    .gallery__img3  {grid-area: img3;}
+    .gallery__foot  {grid-area: foot;}
+
+    
+
+        .gallery__title{
+            display: flex;
+            flex-direction: column;
+            padding-inline: 16px;
+            width: 100%;
+            height: 100%;
+            align-items: start;
+            padding-top: 2rem;
+            gap: 20px;
+            h2{
+                margin: 0;
+                width: 15rem;
+                max-width: 100%;
+            }
+            p{
+                margin: 0;
+                width: 15rem;
+                max-width: 100%;
+            }
+        }
+        .gallery__img1 img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain
+        }
+        .gallery__img2 img,.gallery__img3 img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .gallery__img2{
+            width: 100%;
+            height: 100%;
+        }       
+        .gallery__img3{
+            width: 100%;
+            height: 100%;
+          }
+        
+        .gallery__foot{
+            background-color: variables.$color-black;
+            color: variables.$color-white;
+            width: 100%;
+            height: 100%;
+            h2{
+             padding-left: 16px;   
+            }
+            p{
+                color: variables.$color-white;
+                width: 90%;
+                padding-left: 16px;
+            }
+        }
+    }
+    .main{
+        @include mixins.desktop{
+            .gallery__intro{
+                max-width: 100%;
+                margin-inline: auto;
+            }
+        }
+    }
+
+    .location .street__numer{
+        @include mixins.tablet{
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            padding: 1rem;
+        }
+        h2{
+            grid-column: 1;
+            grid-row: 1;
+            padding-right: 40px;
+            margin: 0;
+            padding: 0;
+        }
+        h3{
+            grid-column: 2;
+            grid-row: 1;
+            margin:0;
+            padding: 0;
+        }
+        p{
+            grid-column: 2;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+     

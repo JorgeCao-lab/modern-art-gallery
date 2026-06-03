@@ -14,9 +14,10 @@
   <body class="home">
 
     <header class="header">
-      <div class="header__bg">
-        <img src="./img/fondo-gallery.jpg" alt="foto-blanco y negro-artistica" >
-      </div>
+      <picture class="header__bg">
+        <source media="(min-width:768px)" srcset="./public/img/fondo-gallery.jpg">
+        <img src="./img/Rectangle.png" alt="foto-blanco y negro-artistica" >
+      </picture>
       <div class="header__contenedor contenedor">
         <section class="header__contenido">
           <h1>MODERN <br> ART GALLERY</h1>
@@ -27,7 +28,7 @@
     </header>
 
     <main class="main">
-      <section class="gallery contenedor">
+      <section class="gallery">
         <article class="gallery__intro">
           <div class="gallery__img1">
             <img src="/img/gleria1.jpg" alt="articulos de arte con fondo blanco y suelo negro">

@@ -1,0 +1,72 @@
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
+
+
+.location__header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+
+  .map__info{
+    display: flex;    
+    background-repeat: no-repeat;
+    background-image: url('/img/Maps.png');
+    background-size:cover;
+    background-position: center;
+    max-width:100%;
+    min-height: 50vh;
+    }
+  }
+
+
+
+.location__main{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    margin: 0;
+    padding: 0;
+    .street__info{
+    padding-left: 1rem;
+    display:flex;
+    flex-direction: column;
+    justify-content:start;
+    align-items: start;
+    width: 100%;
+    background-color:variables.$color-black;
+    color: variables.$color-white;
+    .street__numer{
+        display:flex;
+        align-items: start;
+        padding: 0;
+        padding-top: 5%;
+    }
+    p{
+        color: variables.$color-white;
+    }
+    h3:first-of-type{
+        color: variables.$color-gold;
+    }
+  }
+}
+
+.location__header{
+    @include mixins.tablet{
+    .button__location{
+        margin-left: 5%;
+    }
+    }
+}
+
+    @include mixins.desktop{
+
+        .location__main{
+        @include mixins.contenedor;
+          display: flex;
+          margin: 0;
+          padding: 0;
+          max-width: 100%;
+        }
+    }

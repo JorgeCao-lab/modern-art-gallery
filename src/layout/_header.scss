@@ -4,165 +4,47 @@
 .header{
   @include mixins.contenedor;
   width: 100%;
-}
-.header__bg{
-  max-width: 100%;
-}
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6rem;
 
-.header__bg img{
+.header_bg img{
   width: 100%;
   height: auto;
   display: block;
-}
+  padding-bottom: 2rem;
+  }
 
+.header__contenedor{
+  padding-inline: 16px;
+  }
 
-.location .header{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 1320px;
-  min-width: 100%;
-  min-height: 100%;
-  padding: 0;
-  margin: 0;
- 
-}
-
-.location  .location__header .map__world{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  min-height: 100%;
-  min-width: 100%;
-  padding: 0;
-  margin: 0;
-
-
-}
-.location .map__info{
-  width:100%;
-  height: 50vh;
-  background-image: url('/img/Maps.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 0;
-  margin: 0;
-}
-
-.header{
+.header__contenido{
   display: flex;
   flex-direction: column;
-  position: relative;
   justify-content: start;
-  margin-bottom: 6rem;
-
-@include mixins.tablet{
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-  .header__bg{
-      height: 100%;
-    }
-  .header__bg img{
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      z-index: 1;
-    }
-  .header__contenido{
-      margin: 0;
-      padding: 0;
-      position: absolute;
-      z-index: 5;
-      transform: translateX(-20% );
-      }
-    }
-  }
-  
-
-@include mixins.desktop{
- .header{
-  @include mixins.contenedor;
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-
-  .header__contenido{
-  display: grid;
-  grid-template-columns: 1fr 1fr 0.5fr;
-  position: relative;
+  align-items: start;
+  gap: 1.5rem;
   margin: 0;
-  width: 100%;
-  height: 100vh;
+  padding: 0;
   }
- .header__contenedor{
-  display: grid;
-  position: absolute;
-  z-index: 5;
- }
-
-&::before{
-  content: '';
-  position:absolute;
-  width:33%;
-  height:100%;
-  background-color: variables.$color-black;
-  left:0;
-  top: 0;
-  z-index: 0;
 }
 
- .header__bg{
-  position: absolute;
-  width: 33%;
-  height: 100%;
-  left: 33%;
-  z-index: 1;
-  }
-  .header__bg img{
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-  }
-  .header__contenedor{
-    grid-column: 1/4;
-    position:absolute;
-    height: 100%;
-    width: 100%;
-    z-index: 20;
+.location__header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: auto;
 
-    .header__contenido {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      h1{
-      position: absolute;
-      color: variables.$color-white;
-      max-width:419px;
-      height: auto;
-      right:29%;
-      top:25%;
-      margin:0;
-      inline-size:max-content;
-      z-index: 11;
-      }
-     p{
-      position: absolute;
-      color: variables.$color-grey;
-      width: 400px;
-      margin: 0;
-      height: auto;
-      top: 25%;
-      left: 80%;
-      z-index: 11;  
-      }
-    }
-    .button__primary{
-      position: absolute;
-      left:80%;
-      top: 45%;
-      z-index: 22;
-      }
-    }
-   }  
+  .map__info{
+    display: flex;    
+    background-repeat: no-repeat;
+    background-image: url('/img/Maps.png');
+    background-size:cover;
+    background-position: center;
+    max-width:100%;
+    min-height: 50vh;
   }
+  
+}
