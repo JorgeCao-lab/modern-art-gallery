@@ -37,7 +37,7 @@ Practicar:
 
 ## 📸 Preview
 
-![Preview](Modern-art-gallery/public/img/Preview-art.png)
+![Preview](public/img/Preview-art.png)
 
 
 ---
